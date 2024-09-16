@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 22px;
+    user-select: none;
+    scrollbar-color: #777 rgb(64,64,74);
+}
+
+.hide {
+    display: none !important;
+}
+
+h5 {
+    font-size: 14px;
+    color: #acccff;
+    font-weight: 100;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 100%;
+    grid-template-areas: "header" "content";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color: #E0E0E0;
+    background-color: rgb(70,70,84);
+}
+
+#header {
+    display: grid;
+    grid-template-areas: 'menu-btn nav';
+    grid-template-columns: auto 1fr;
+    grid-area: header;
+    background: rgb(64,64,74);
+    border-bottom: solid 2px #222;
+    height: 54px;
+    text-shadow: 0 0 5px black;
+    letter-spacing: 1;
+    z-index: 1;
+}
+
+/* #region Nav */
+
+#nav {
+    grid-area: nav;
+    display: grid;
+    height: 54px;
+    grid-template-columns: 1fr 54px 1fr 54px 1fr auto auto;
+}
+
+.nav-prev {
+    background-image: url('../images/arrow-left.svg');
+    background-size: cover;
+    margin-top: 6px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.nav-info {
+    display: grid;
+    grid-template-rows: auto auto;
+    text-align: center;
+    padding-top: 9px;
+}
+
+.nav-info > :nth-child(1) {
+    font-size: 18px;
+}
+
+.nav-info > :nth-child(2) {
+    font-size: 12px;
+}
+
+.nav-next {
+    background-image: url('../images/arrow-right.svg');
+    background-size: cover;
+    margin-top: 6px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.nav-bookmark {
+    display: grid;
+    grid-template-columns: auto 110px;
+    cursor: pointer;
+}
+
+.nav-bookmark-text {
+    font-size: 16px;
+    padding-top: 9px;
+}
+
+.nav-bookmark > .bookmark-icon-empty {
+    display: inline-block;
+    background-image: url('../images/bookmark.svg');
+    background-size: cover;
+    width: 54px;
+    height: 54px;
+}
+
+.nav-bookmark > .bookmark-icon-solid {
+    display: inline-block;
+    background-image: url('../images/bookmark-solid.svg');
+    background-size: cover;
+    width: 54px;
+    height: 54px;
+}
+
+.download-icon {
+    background-image: url('../images/download.svg');
+    background-size: cover;
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+}
+
+/* #endregion */
+
+#content {
+    grid-area: content;
+    overflow-y: auto;
+}
+
+.content-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image fits within the container */
+}
+
+.content-container {
+    flex: 1 1 100%; /* Three columns with gap */
+    width: 100%; /* Ensure containers don't exceed one-third of the container's width */
+    height: 100%; /* Adjust as needed to maintain square aspect ratio */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.button {
+    background-color: rgba(255,255,255,.1);
+    border: solid 1px #222;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px;
+    user-select: none;
+}
+
+.button:hover {
+    background-color: rgba(255,255,255,.2);
+}
+
+/* #region Menu */
+
+#menubutton {
+    grid-area: menu-btn;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 30px;
+    letter-spacing: 3;
+    transform: rotate(90deg);
+    width: 25px;
+    margin-right: 10px;
+    margin-left: 12px;
+    user-select: none;
+}
+
+#menu {
+    position: fixed;
+    top: 56px;
+    left: -560;
+    bottom: 0;
+    width: 500px;
+    height: calc(100vh - 80px);
+    background: rgb(64,64,74);
+    border-right: solid 2px #222;
+    box-shadow: 3px 0 40px rgb(24,24,34);
+    color: #EEE;
+    padding: 12px;
+    padding-right: 6px;
+    text-shadow: 0 0 3px black;
+    overflow-y: scroll;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding-left: 0;
+    user-select: none;
+}
+
+.bookmark-icon-empty {
+    display: inline-block;
+    background-image: url('../images/bookmark.svg');
+    background-size: cover;
+    width: 30px;
+    height: 24px;
+}
+
+.nav .bookmark-icon-empty {
+    display: inline-block;
+    background-image: url('../images/bookmark.svg');
+    background-size: cover;
+    height: 48px;
+}
+
+.menu-item {
+    background-color: rgba(255,255,255,.1);
+    margin-bottom: 6px;
+    border-radius: 8px;
+    border: solid 2px transparent;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px #00000030;
+}
+
+.menu-item:hover {
+    border-color: rgb(65, 97, 155);
+}
+
+.menu-item-header {
+    text-align: left;
+    padding: 4px;
+}
+
+.count {
+    color: #9f9f9f;
+    font-size: 14px;
+    text-shadow: none;
+}
+
+.thumb-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image fits within the container */
+}
+
+.thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px; /* Adjust the gap as needed */
+    margin: 5px;
+}
+
+.thumb-container {
+    flex: 1 1 calc(33.333% - 10px); /* Three columns with gap */
+    max-width: calc(33.333% - 10px); /* Ensure containers don't exceed one-third of the container's width */
+    height: 100px; /* Adjust as needed to maintain square aspect ratio */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #22222280; /* Background color for padding areas */
+    border-radius: 7px; /* Optional: for rounded corners */
+    box-shadow: 2px 2px 3px #00000050;
+    border: solid 1px #444; /* Optional: for borders */
+    overflow: hidden;
+}
+
+.no-bookmarks {
+    font-size: medium;
+    padding: 12px;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding-left: 0;
+    user-select: none;
+}
+
+.menu-folder {
+    list-style-type: none;
+    padding-left: 0;
+    user-select: none;
+}
