@@ -107,13 +107,13 @@ class Menu {
 
     accordionSelect(id)
     {
-        let items = document.querySelectorAll('.thumbs')
-        items.forEach((y) => {
-            if(y.id == id) 
+        let elements = document.querySelectorAll('.thumbs')
+        elements.forEach((ele) => {
+            if(ele.id == id) 
             {
-                if (y.classList.contains('hide'))
+                if (ele.classList.contains('hide'))
                 {
-                    y.classList.remove('hide')
+                    ele.classList.remove('hide')
                     let pos = (id * 45) + 15 - id
                     state.setScrollPosition(pos)
                     state.setExpandedFolder(id)
@@ -123,7 +123,7 @@ class Menu {
                             behavior: 'smooth'})
                             ,100}) // the delay is needed to allow for the menu to expand before scrolling
                 } else {
-                    y.classList.add('hide')
+                    ele.classList.add('hide')
                     state.setScrollPosition(0)
                     state.setExpandedFolder(-1)
                     this.menuDiv.scrollTo({
@@ -132,10 +132,9 @@ class Menu {
                     })
                 }
             } else {
-                if(!y.classList.contains('hide')) y.classList.add('hide')
+                if(!ele.classList.contains('hide')) ele.classList.add('hide')
             }
         })
-        state.syncLocalStorage(true)
     }
 
     renderThumbs(folderId){
@@ -161,6 +160,7 @@ class Menu {
         if (count == 0) {
             thumbsDiv.innerText = 'You have no bookmarked images.'
             thumbsDiv.classList.add('no-bookmarks')
+            thumbsDiv.classList.add('thumbs')
             if (thumbsDiv.classList.contains('hide')) thumbsDiv.classList.remove('hide')
         }
         state.bookmarks.forEach((item) => {

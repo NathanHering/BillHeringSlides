@@ -11,7 +11,7 @@ function GetImagePath(folder, image, size = '') {
    let folderNum = folder.id.toString().padStart(2, '0')
    let imgNum = image.toString().padStart(3, '0')
    let suffix = size === '' ? '' : '_' + size
-   let root = isFile ? './images/' : './blob/main/images/'
+   let root = isFile ? './images/' : 'https://nathanhering.github.io/billheringslides/images/';
 
    return root + folder.path + '/' + folderNum + '_' + imgNum + suffix + '.jpg'
 }
