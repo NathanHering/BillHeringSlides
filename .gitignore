@@ -7,12 +7,6 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
-# Ignore all .jpg files in the images folder
-images/**/*.jpg
-
-!images/**/*_sm.jpg
-!images/**/*_md.jpg
-
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor
 
