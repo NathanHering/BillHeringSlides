@@ -13,5 +13,5 @@ function GetImagePath(folder, image, size = '') {
    let suffix = size === '' ? '' : '_' + size
    let root = isFile ? './images/' : 'https://nathanhering.github.io/billheringslides/images/';
 
-   return root + folder.path + '/' + folderNum + '_' + imgNum + suffix + '.jpg'
+   return root + folder.path + '/' + folderNum + '_' + imgNum + suffix + '.JPG'
 }
