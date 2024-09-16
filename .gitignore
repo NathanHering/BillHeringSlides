@@ -10,8 +10,8 @@ _site/
 # Ignore all .jpg files in the images folder
 images/**/*.jpg
 
-# Do not ignore .jpg files in the images folder that end with _sm.jpg
 !images/**/*_sm.jpg
+!images/**/*_md.jpg
 
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor
