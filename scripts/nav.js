@@ -23,9 +23,12 @@ class Nav {
       if (state.selectedFolder === -1) return
       if (state.selectedFolder === null) return
       this.navDiv.appendChild(document.createElement('div'))
-      this.navDiv.appendChild(this.prevBtn)
-      this.navDiv.appendChild(this.infoContainer)
-      this.navDiv.appendChild(this.nextBtn)
+      let main = document.createElement('div')
+      main.classList.add('nav-main')
+      main.appendChild(this.prevBtn)
+      main.appendChild(this.infoContainer)
+      main.appendChild(this.nextBtn)
+      this.navDiv.appendChild(main)
       this.navDiv.appendChild(document.createElement('div'))
       this.navDiv.appendChild(this.bookmarkButton)
       this.navDiv.appendChild(this.downloadButton)

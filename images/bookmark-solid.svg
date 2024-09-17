@@ -15,7 +15,16 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs1" />
+     id="defs1">
+    <linearGradient
+       id="swatch2"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2" />
+    </linearGradient>
+  </defs>
   <sodipodi:namedview
      id="namedview1"
      pagecolor="#ffffff"
@@ -30,15 +39,19 @@
      inkscape:cy="400"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1" />
   <path
-     d="M15.75 5H8.25C7.55964 5 7 5.58763 7 6.3125V19L12 15.5L17 19V6.3125C17 5.58763 16.4404 5 15.75 5Z"
+     d="M 15.75,5 H 8.25 C 7.55964,5 7,5.58763 7,6.3125 V 19 l 5,-3.5 5,3.5 V 6.3125 C 17,5.58763 16.4404,5 15.75,5 Z"
      stroke="#464455"
      stroke-linecap="round"
      stroke-linejoin="round"
      id="path1"
-     style="stroke:#eeeeee;stroke-opacity:1;fill:#eeeeee;fill-opacity:1" />
+     style="display:inline;fill:#eeeeee;fill-opacity:1;stroke:#eeeeee;stroke-opacity:1" />
+  <path
+     style="fill:#40404a;fill-rule:evenodd;stroke:#40404a;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:bevel;paint-order:stroke fill markers;fill-opacity:1;stroke-opacity:1"
+     d="M 9.81,10.58904 14.238044,10.53"
+     id="path2" />
 </svg>
