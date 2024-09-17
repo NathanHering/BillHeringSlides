@@ -67,6 +67,7 @@ class State {
             this.selectedFolder = null;
             this.selectedImage = null;
             this.bookmarks = [];
+            this.expandedFolder = -1;
             this.syncLocalStorage(true);
             window.location = `${window.location.pathname}`
          } // if we're viewing the first bookmark, go to the last one 
