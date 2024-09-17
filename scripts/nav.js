@@ -240,13 +240,13 @@ class Nav {
    downloadImage() {
       let folder = folders.find(f => f.id === state.selectedFolder);
       let path = GetImagePath(folder, state.selectedImage);
-
+      let filename = folder.id.toString().padStart(2, '0') + '_' + state.selectedImage.toString().padStart(3, '0') + '.JPG';
       fetch(path)
          .then(response => response.blob())
          .then(blob => {
                let link = document.createElement('a');
                link.href = URL.createObjectURL(blob);
-               link.download = 'image'; // Set the desired filename here
+               link.download = filename;
                document.body.appendChild(link); // Append the link to the document body
                link.click(); // Programmatically click the link to trigger the download
                document.body.removeChild(link); // Remove the link from the document body
