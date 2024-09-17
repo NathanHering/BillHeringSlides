@@ -52,7 +52,6 @@ class Content {
                 }
             })
         }
-        console.log(args)
         return args
     }
 

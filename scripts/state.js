@@ -60,8 +60,36 @@ class State {
    }
 
    removeBookmark(folderId, imageId) {
+      if (this.isViewingBookmarks) {
+         // if there is only one bookmark, remove it and return to the main view
+         if (this.bookmarksCount === 1) {
+            this.isViewingBookmarks = false;
+            this.selectedFolder = null;
+            this.selectedImage = null;
+            this.bookmarks = [];
+            this.syncLocalStorage(true);
+            window.location = `${window.location.pathname}`
+         } // if we're viewing the first bookmark, go to the last one 
+         else if (this.currentImageBookmarkIndex === 1) {
+            let lastFolder = this.bookmarks[this.bookmarks.length - 1];
+            this.selectedFolder = lastFolder.folder;
+            this.selectedImage = lastFolder.images[lastFolder.images.length - 1];
+         } // go to the previous bookmark
+         else {
+            let folder = this.bookmarks.find(b => b.folder === this.selectedFolder);
+            let folderIndex = this.bookmarks.indexOf(folder);
+            let imageIndex = folder.images.indexOf(this.selectedImage);
+            if (imageIndex === 0) {
+               let lastFolder = this.bookmarks[folderIndex - 1];
+               this.selectedFolder = lastFolder.folder;
+               this.selectedImage = lastFolder.images[lastFolder.images.length - 1];
+            } else {
+               this.selectedImage = folder.images[imageIndex - 1];
+            }
+         }
+      }
+
       let foundFolder = this.bookmarks.find(b => b.folder === folderId);
-      console.log(arguments)
       if (foundFolder) {
          let foundImageIndex = foundFolder.images.indexOf(imageId);
          if (foundImageIndex > -1) {
@@ -73,6 +101,9 @@ class State {
          }
       }
       this.syncLocalStorage(true);
+      if (this.isViewingBookmarks) {
+         content.route(this.selectedFolder, this.selectedImage);
+      }
    }
    
    get bookmarksCount(){
