@@ -41,4 +41,12 @@
      stroke-linejoin="round"
      id="path1"
      style="stroke:#eeeeee;stroke-opacity:1" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#eeeeee;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:bevel;paint-order:stroke fill markers"
+     d="M 9.7333578,10.13904 14.161402,10.08"
+     id="path2" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#eeeeee;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:bevel;paint-order:stroke fill markers"
+     d="M 11.9769,12.323542 11.91786,7.895498"
+     id="path2-5" />
 </svg>

@@ -174,7 +174,7 @@ body {
 .nav-bookmark > .bookmark-icon-empty {
     grid-area: bookmark-icon;
     display: inline-block;
-    background-image: url('../images/bookmark.svg');
+    background-image: url('../images/bookmark-plus.svg');
     background-size: cover;
     width: 54px;
     height: 54px;
