@@ -32,6 +32,7 @@ class Nav {
       this.navDiv.appendChild(document.createElement('div'))
       this.navDiv.appendChild(this.bookmarkButton)
       this.navDiv.appendChild(this.downloadButton)
+      this.navDiv.appendChild(this.shareButton)
    }
 
    refresh() {
@@ -43,6 +44,7 @@ class Nav {
    get prevBtn() {
       let btn = document.createElement('div')
       btn.classList.add('nav-prev')
+      btn.title = 'Previous Image'
       btn.addEventListener('click', () => {
          this.advanceToPreviousImage()
       })
@@ -93,6 +95,7 @@ class Nav {
    get nextBtn() {
       let btn = document.createElement('div')
       btn.classList.add('nav-next')
+      btn.title = 'Next Image'
       btn.addEventListener('click', () => {
          this.advanceToNextImage()
       })
@@ -198,8 +201,10 @@ class Nav {
       let icon = document.createElement('span')
       if (state.getIsBookmarked(state.selectedFolder, state.selectedImage)) {
          icon.classList.add('bookmark-icon-solid')
+         icon.title = 'Remove From Bookmarked Images'
       } else {
          icon.classList.add('bookmark-icon-empty')
+         icon.title = 'Add To Bookmarked Images'
       }
       return icon
    }
@@ -233,6 +238,7 @@ class Nav {
 
       let download = document.createElement('div')
       download.id = 'download-button'
+      download.title = 'Download Image'
       download.classList.add('download-icon')
       download.addEventListener('click', () => {
          this.downloadImage()
@@ -254,6 +260,35 @@ class Nav {
                link.click(); // Programmatically click the link to trigger the download
                document.body.removeChild(link); // Remove the link from the document body
                URL.revokeObjectURL(link.href); // Clean up the URL object
+         })
+         .catch(console.error);
+   }
+
+   get shareButton() {
+      let ele = document.getElementById('share-button')
+      if (ele){
+         ele.removeEventListener('click')
+         ele.remove()
+      }
+
+      let share = document.createElement('div')
+      share.id = 'share-button'
+      share.title = 'Copy Image URL to Clipboard'
+      share.classList.add('share-icon')
+      share.addEventListener('click', () => {
+         this.shareImage()
+      })
+      return share
+   }
+
+   /**
+    * this copies the current image url to the clipboard
+    */
+   shareImage() {
+      navigator.clipboard.writeText(window.location.href)
+         .then(() => {
+            console.log('Image URL copied to clipboard');
+            console.log(window.location.href);
          })
          .catch(console.error);
    }
