@@ -265,16 +265,16 @@ class Nav {
    }
 
    get shareButton() {
-      let ele = document.getElementById('share-button')
+      let ele = document.getElementById('link-button')
       if (ele){
          ele.removeEventListener('click')
          ele.remove()
       }
 
       let share = document.createElement('div')
-      share.id = 'share-button'
+      share.id = 'link-button'
       share.title = 'Copy Image URL to Clipboard'
-      share.classList.add('share-icon')
+      share.classList.add('link-icon')
       share.addEventListener('click', () => {
          this.shareImage()
       })
